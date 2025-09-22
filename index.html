@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arnav Engineering Services - Your Partner for Integrated Industrial Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="resource/Logo New.jpg" alt="Arnav Engineering Services" class="logo-img">
+                    <h2>Arnav Engineering Services</h2>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#services" class="nav-link">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#products" class="nav-link">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#gallery" class="nav-link">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+                <div class="nav-toggle" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Your Partner for Integrated Industrial Solutions</h1>
+                <p class="hero-description">
+                    Arnav Engineering Services delivers a full spectrum of industrial solutions, from material handling
+                    to custom fabrication and safety systems. Our commitment is to enhance operational efficiency and
+                    safety through tailored, high-quality engineering.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary">Get Quote</button>
+                    <button class="btn btn-secondary">View Services</button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">Core Service Categories</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">Custom Solutions Delivered</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">Client Satisfaction Rate</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-video">
+                    <video autoplay muted loop>
+                        <source src="resource/Introduction Video AES.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+        <div class="floating-elements">
+            <div class="floating-btn whatsapp">
+                <i class="fab fa-whatsapp"></i>
+            </div>
+            <div class="floating-btn call">
+                <i class="fas fa-phone"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>Comprehensive Engineering Expertise</h2>
+                <p>We provide integrated industrial solutions across multiple domains, ensuring your operations run
+                    efficiently and safely.</p>
+            </div>
+
+            <div class="competencies-section">
+                <h3>Our Core Competencies</h3>
+                <div class="chart-container">
+                    <canvas id="competenciesChart"></canvas>
+                </div>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Material Handling & Storage</h3>
+                    <p>Comprehensive solutions for efficient material movement and storage systems.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-conveyor-belt"></i>
+                    </div>
+                    <h3>Conveyors & Automation</h3>
+                    <p>Advanced conveyor systems and automated material flow solutions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Industrial Fabrication & Safety</h3>
+                    <p>Custom fabrication and robust safety systems for industrial environments.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Industrial Consumables</h3>
+                    <p>High-quality bearings, fasteners, and industrial components.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p>Comprehensive industrial solutions tailored to your specific needs</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-category">
+                    <div class="service-header">
+                        <img src="resource/Material Handling/Master Material Handling.png" alt="Material Handling">
+                        <h3>Material Handling & Storage Solutions</h3>
+                    </div>
+                    <div class="service-items">
+                        <div class="service-item">
+                            <img src="resource/Material Handling/Assembly workstation.png" alt="Assembly Workstation">
+                            <h4>Assembly Workstations</h4>
+                        </div>
+                        <div class="service-item">
+                            <img src="resource/Material Handling/AL Assembly Workstation.jpg"
+                                alt="AL Assembly Workstation">
+                            <h4>Aluminum Assembly Workstations</h4>
+                        </div>
+                        <div class="service-item">
+                            <img src="resource/Material Handling/Inspection Table.jpg" alt="Inspection Table">
+                            <h4>Inspection Tables</h4>
+                        </div>
+                        <div class="service-item">
+                            <img src="resource/Material Handling/Movable Trolly.webp" alt="Movable Trolley">
+                            <h4>Movable Trolleys</h4>
+                        </div>
+                        <div class="service-item">
+                            <img src="resource/Material Handling/scissor lift.png" alt="Scissor Lift">
+                            <h4>Scissor Lifts</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-category">
+                    <div class="service-header">
+                        <img src="resource/Conveyors & Automated Material Flow Systems/consolidate conveyor.png"
+                            alt="Conveyors">
+                        <h3>Conveyors & Automated Material Flow</h3>
+                    </div>
+                    <div class="service-items">
+                        <div class="service-item">
+                            <img src="resource/Conveyors & Automated Material Flow Systems/Belt Conveyor.jpg"
+                                alt="Belt Conveyor">
+                            <h4>Belt Conveyors</h4>
+                        </div>
+                        <div class="service-item">
+                            <img src="resource/Conveyors & Automated Material Flow Systems/Chain Conveyor.jpg"
+                                alt="Chain Conveyor">
+                            <h4>Chain Conveyors</h4>
+                        </div>
+                        <div class="service-item">
+                            <img src="resource/Conveyors & Automated Material Flow Systems/SS Roller Conveyor.jpg"
+                                alt="Roller Conveyor">
+                            <h4>Roller Conveyors</h4>
+                        </div>
+                        <div class="service-item">
+                            <img src="resource/Conveyors & Automated Material Flow Systems/Telescopic Conveyor.jpg"
+                                alt="Telescopic Conveyor">
+                            <h4>Telescopic Conveyors</h4>
+                        </div>
+                        <div class="service-item">
+                            <img src="resource/Conveyors & Automated Material Flow Systems/Assembly line Conveyor.jpg"
+                                alt="Assembly Line Conveyor">
+                            <h4>Assembly Line Conveyors</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-category">
+                    <div class="service-header">
+                        <img src="resource/Industrial Fabrication/Master Industrial Fabrication.png"
+                            alt="Industrial Fabrication">
+                        <h3>Industrial Fabrication</h3>
+                    </div>
+                    <div class="service-items">
+                        <div class="service-item">
+                            <img src="resource/Industrial Fabrication/Control Panel.jpg" alt="Control Panel">
+                            <h4>Control Panels</h4>
+                        </div>
+                        <div class="service-item">
+                            <img src="resource/Industrial Fabrication/MS Workstation.jpg" alt="MS Workstation">
+                            <h4>MS Workstations</h4>
+                        </div>
+                        <div class="service-item">
+                            <img src="resource/Industrial Fabrication/Mezzanine Heavy Duty.jpg" alt="Mezzanine">
+                            <h4>Heavy Duty Mezzanines</h4>
+                        </div>
+                        <div class="service-item">
+                            <img src="resource/Industrial Fabrication/MS Table.jpg" alt="MS Table">
+                            <h4>MS Tables</h4>
+                        </div>
+                        <div class="service-item">
+                            <img src="resource/Industrial Fabrication/MS Bin.jpg" alt="MS Bin">
+                            <h4>MS Bins</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-category">
+                    <div class="service-header">
+                        <img src="resource/Machine Fencing Guard/Master Fencing Guard.png" alt="Machine Fencing">
+                        <h3>Machine Fencing & Guards</h3>
+                    </div>
+                    <div class="service-items">
+                        <div class="service-item">
+                            <img src="resource/Machine Fencing Guard/Fencing.jpg" alt="Fencing">
+                            <h4>Industrial Fencing</h4>
+                        </div>
+                        <div class="service-item">
+                            <img src="resource/Machine Fencing Guard/AL Fencing Guard.jpg" alt="AL Fencing Guard">
+                            <h4>Aluminum Fencing Guards</h4>
+                        </div>
+                        <div class="service-item">
+                            <img src="resource/Machine Fencing Guard/Machine Guard Fencing.jpg" alt="Machine Guard">
+                            <h4>Machine Guard Fencing</h4>
+                        </div>
+                        <div class="service-item">
+                            <img src="resource/Machine Fencing Guard/Fencing Guard Hony Comb.png" alt="Honeycomb Guard">
+                            <h4>Honeycomb Guards</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-category">
+                    <div class="service-header">
+                        <img src="resource/Storage Solutions/Master.png" alt="Storage Solutions">
+                        <h3>Storage Solutions</h3>
+                    </div>
+                    <div class="service-items">
+                        <div class="service-item">
+                            <img src="resource/Storage Solutions/AL Storage Rack.jpg" alt="Storage Rack">
+                            <h4>Storage Racks</h4>
+                        </div>
+                        <div class="service-item">
+                            <img src="resource/Storage Solutions/FIFO Rack.jpg" alt="FIFO Rack">
+                            <h4>FIFO Racks</h4>
+                        </div>
+                        <div class="service-item">
+                            <img src="resource/Storage Solutions/Moduler.jpg" alt="Modular Storage">
+                            <h4>Modular Storage</h4>
+                        </div>
+                        <div class="service-item">
+                            <img src="resource/Storage Solutions/SS Trolly.jpg" alt="SS Trolley">
+                            <h4>Stainless Steel Trolleys</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-category">
+                    <div class="service-header">
+                        <img src="resource/Automotion/Master Automation.png" alt="Automation">
+                        <h3>Automation Solutions</h3>
+                    </div>
+                    <div class="service-items">
+                        <div class="service-item">
+                            <img src="resource/Automotion/Pick & Place.png" alt="Pick & Place">
+                            <h4>Pick & Place Systems</h4>
+                        </div>
+                        <div class="service-item">
+                            <img src="resource/Automotion/SPM.png" alt="SPM">
+                            <h4>Special Purpose Machines</h4>
+                        </div>
+                        <div class="service-item">
+                            <img src="resource/Automotion/Welding Fixture.png" alt="Welding Fixture">
+                            <h4>Welding Fixtures</h4>
+                        </div>
+                        <div class="service-item">
+                            <img src="resource/Automotion/Jig & boom.png" alt="Jig & Boom">
+                            <h4>Jig & Boom Systems</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <div class="section-header">
+                <h2>Industrial Consumables & Components</h2>
+                <p>High-quality industrial components and consumables from leading brands</p>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-category">
+                    <div class="product-header">
+                        <img src="resource/Industrial Consumables/Master Industrial Consumable.png"
+                            alt="Industrial Consumables">
+                        <h3>Industrial Consumables</h3>
+                    </div>
+                    <div class="product-items">
+                        <div class="product-item">
+                            <img src="resource/Industrial Consumables/WhatsApp Image 2025-09-20 at 16.20.02_d7927a6c.jpg"
+                                alt="Product 1">
+                            <h4>Industrial Bearings</h4>
+                            <p>High-performance ARB bearings for various applications</p>
+                        </div>
+                        <div class="product-item">
+                            <img src="resource/Industrial Consumables/WhatsApp Image 2025-09-20 at 16.21.00_9fcc6533.jpg"
+                                alt="Product 2">
+                            <h4>Industrial Fasteners</h4>
+                            <p>Reliable fasteners from leading brands like Caparo and TVS</p>
+                        </div>
+                        <div class="product-item">
+                            <img src="resource/Industrial Consumables/WhatsApp Image 2025-09-20 at 16.21.36_69fbe502.jpg"
+                                alt="Product 3">
+                            <h4>Safety Components</h4>
+                            <p>Overpressure safety relief valves and rupture disks</p>
+                        </div>
+                        <div class="product-item">
+                            <img src="resource/Industrial Consumables/WhatsApp Image 2025-09-20 at 16.22.08_fc0dddbc.jpg"
+                                alt="Product 4">
+                            <h4>Pressure Safety Devices</h4>
+                            <p>Explosion vents and safety relief systems</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Work Gallery</h2>
+                <p>Explore our completed projects and solutions</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="resource/WhatsApp Image 2025-09-20 at 16.27.31_95e23381.jpg" alt="Project 1">
+                    <div class="gallery-overlay">
+                        <h4>Custom Assembly Line</h4>
+                        <p>Complete assembly line solution for automotive industry</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="resource/WhatsApp Image 2025-09-20 at 16.30.54_bcf29688.jpg" alt="Project 2">
+                    <div class="gallery-overlay">
+                        <h4>Material Handling System</h4>
+                        <p>Automated material handling and storage solution</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="resource/Industrial Fabrication/Control Panel 1.jpg" alt="Control Panel 1">
+                    <div class="gallery-overlay">
+                        <h4>Control Panel Fabrication</h4>
+                        <p>Custom control panel for industrial automation</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="resource/Industrial Fabrication/Control Panel 2.jpg" alt="Control Panel 2">
+                    <div class="gallery-overlay">
+                        <h4>Advanced Control System</h4>
+                        <p>High-tech control system for manufacturing</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="resource/Conveyors & Automated Material Flow Systems/FIFO with Assembly line Conveyor.jpg"
+                        alt="FIFO Conveyor">
+                    <div class="gallery-overlay">
+                        <h4>FIFO Conveyor System</h4>
+                        <p>First In First Out conveyor with assembly line integration</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="resource/Storage Solutions/FIFO with Assembly Line.jpg" alt="FIFO Assembly">
+                    <div class="gallery-overlay">
+                        <h4>FIFO Assembly Line</h4>
+                        <p>Integrated FIFO storage with assembly line</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Get In Touch</h2>
+                    <p>Ready to optimize your operations? Contact Arnav Engineering Services today for a consultation.
+                    </p>
+
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 9876543210</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@arnavengineering.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p>+91 9876543210</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>Industrial Area, Mumbai, Maharashtra, India</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Your Phone" required>
+                        </div>
+                        <div class="form-group">
+                            <select required>
+                                <option value="">Select Service</option>
+                                <option value="material-handling">Material Handling</option>
+                                <option value="conveyors">Conveyors & Automation</option>
+                                <option value="fabrication">Industrial Fabrication</option>
+                                <option value="fencing">Machine Fencing</option>
+                                <option value="storage">Storage Solutions</option>
+                                <option value="automation">Automation</option>
+                                <option value="consumables">Industrial Consumables</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="resource/Logo New.jpg" alt="Arnav Engineering Services" class="footer-logo-img">
+                        <h3>Arnav Engineering Services</h3>
+                    </div>
+                    <p>Your Partner for Integrated Industrial Solutions</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Material Handling</a></li>
+                        <li><a href="#services">Conveyors & Automation</a></li>
+                        <li><a href="#services">Industrial Fabrication</a></li>
+                        <li><a href="#services">Machine Fencing</a></li>
+                        <li><a href="#services">Storage Solutions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="#products">Industrial Bearings</a></li>
+                        <li><a href="#products">Fasteners</a></li>
+                        <li><a href="#products">Safety Components</a></li>
+                        <li><a href="#products">Pressure Devices</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-phone"></i> +91 9876543210</p>
+                    <p><i class="fas fa-envelope"></i> info@arnavengineering.com</p>
+                    <p><i class="fab fa-whatsapp"></i> +91 9876543210</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Arnav Engineering Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,317 @@
+<!-- Chosen Palette: Brilliant Blues -->
+<!-- Plan Narrative & Structure: The infographic tells a story, starting with a high-level introduction to Arnav Engineering and establishing credibility with key metrics. It then breaks down their services from a broad overview (donut chart) to specific details (bar chart and lists), using a two-column grid to present detailed information concisely. It concludes with a visual process flow and a summary of ancillary products. This narrative structure guides the user logically from general to specific information, enhancing comprehension. -->
+<!-- Select Optimal Visualizations:
+- KPIs (5+, 100+, 98%): Goal: Inform -> Visualization: Single Big Number in styled cards -> Justification: High-impact method for key stats. Method: HTML/CSS. NO SVG.
+- Core Competencies Data: Goal: Compare (Composition) -> Visualization: Donut Chart -> Justification: Ideal for showing parts of a whole. Library: Chart.js/Canvas. NO SVG.
+- Material Handling Data: Goal: Compare (Categories) -> Visualization: Bar Chart -> Justification: Best for comparing distinct categories. Library: Chart.js/Canvas. NO SVG.
+- Automated Material Flow: Goal: Organize (Process) -> Visualization: Flow Chart -> Justification: Clearly shows a sequential process. Method: HTML/CSS with Tailwind Flexbox. NO SVG/Mermaid JS.
+- Fabrication & Consumables: Goal: Organize/Inform -> Visualization: Styled Lists/Cards -> Justification: Clean presentation for structured text. Method: HTML/CSS. NO SVG. -->
+<!-- CONFIRMATION: NEITHER Mermaid JS NOR SVG were used anywhere in the output. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arnav Engineering Services Infographic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .flow-step {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            color: white;
+            min-height: 80px;
+            font-weight: 600;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transition: transform 0.2s;
+        }
+        .flow-step:hover {
+            transform: translateY(-5px);
+        }
+        .flow-arrow {
+            font-size: 2.5rem;
+            margin: 0 1rem;
+            transform: rotate(90deg);
+        }
+        @media (min-width: 768px) {
+            .flow-arrow {
+                transform: rotate(0deg);
+            }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <header class="bg-[#003f5c] text-white p-6 shadow-lg">
+        <div class="container mx-auto text-center">
+            <h1 class="text-4xl font-bold">ARNAV ENGINEERING SERVICES</h1>
+            <p class="text-xl mt-2 text-[#a5d8e4]">Your Partner for Integrated Industrial Solutions</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+        
+        <section id="introduction" class="text-center bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-3xl font-bold text-[#366e8a] mb-4">Comprehensive Engineering Expertise</h2>
+            <p class="text-lg max-w-3xl mx-auto mb-6">Arnav Engineering Services delivers a full spectrum of industrial solutions, from material handling to custom fabrication and safety systems. Our commitment is to enhance operational efficiency and safety through tailored, high-quality engineering.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-[#a5d8e4] text-[#003f5c] p-6 rounded-lg">
+                    <div class="text-6xl font-bold">5+</div>
+                    <div class="text-xl font-semibold mt-2">Core Service Categories</div>
+                </div>
+                 <div class="bg-[#6b9db3] text-white p-6 rounded-lg">
+                    <div class="text-6xl font-bold">100+</div>
+                    <div class="text-xl font-semibold mt-2">Custom Solutions Delivered</div>
+                </div>
+                 <div class="bg-[#366e8a] text-white p-6 rounded-lg">
+                    <div class="text-6xl font-bold">98%</div>
+                    <div class="text-xl font-semibold mt-2">Client Satisfaction Rate</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="competencies" class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-3xl font-bold text-center text-[#366e8a] mb-2">Our Core Competencies</h2>
+            <p class="text-lg text-center max-w-3xl mx-auto mb-6">Our services are structured across several key areas to provide comprehensive support for your industrial needs. This chart illustrates the primary focus of our diverse offerings, showcasing our specialization in creating robust and efficient operational environments.</p>
+            <div class="chart-container">
+                <canvas id="competenciesChart"></canvas>
+            </div>
+        </section>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <section id="material-handling" class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-3xl font-bold text-center text-[#366e8a] mb-2">Material Handling & Storage Deep Dive</h2>
+                 <p class="text-lg text-center max-w-3xl mx-auto mb-6">We provide a wide array of material handling and storage solutions, a cornerstone of our business. The chart below highlights the distribution of our projects within this category, emphasizing our strong focus on workstations and integrated storage systems.</p>
+                <div class="chart-container h-[400px] md:h-[450px]">
+                    <canvas id="materialHandlingChart"></canvas>
+                </div>
+            </section>
+
+            <section id="fabrication-safety" class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-3xl font-bold text-center text-[#366e8a] mb-6">Fabrication & Safety Solutions</h2>
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-3 text-[#003f5c]">🔩 Custom Industrial Fabrication</h3>
+                        <p class="mb-4">Our state-of-the-art fabrication services cover both Mild Steel (MS) and Stainless Steel (SS), ensuring precision and durability for every component.</p>
+                        <ul class="list-disc list-inside space-y-2 text-lg">
+                            <li>Precision Welding & Assembly</li>
+                            <li>Sheet Metal Bending & Cutting</li>
+                            <li>Custom Component Machining</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-3 text-[#003f5c]">🛡️ Industrial Safety Components</h3>
+                        <p class="mb-4">Protect your personnel and equipment with our robust safety solutions, designed for modern industrial environments and robotic cells.</p>
+                        <ul class="list-disc list-inside space-y-2 text-lg">
+                            <li>Machine & Robotic Cell Fencing Guards</li>
+                            <li>Overpressure Safety Relief Valves</li>
+                            <li>Rupture Disks & Explosion Vents</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section id="conveyors" class="bg-white rounded-lg shadow-md p-6 my-8">
+            <h2 class="text-3xl font-bold text-center text-[#366e8a] mb-2">Automated Material Flow Systems</h2>
+            <p class="text-lg text-center max-w-4xl mx-auto mb-8">We engineer and implement a full range of conveyor systems to create seamless, automated workflows. This process flow demonstrates how different conveyor types are integrated to move materials efficiently from receiving to dispatch.</p>
+            <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4">
+                <div class="flow-step bg-[#6b9db3]">Receiving & Unloading<br>(Powered Roller Conveyor)</div>
+                <div class="flow-arrow text-[#366e8a]">➜</div>
+                <div class="flow-step bg-[#6b9db3]">Assembly Line<br>(Belt or Slat Conveyor)</div>
+                <div class="flow-arrow text-[#366e8a]">➜</div>
+                <div class="flow-step bg-[#6b9db3]">Packing & Inspection<br>(Gravity Roller Conveyor)</div>
+                 <div class="flow-arrow text-[#366e8a]">➜</div>
+                <div class="flow-step bg-[#6b9db3]">Dispatch<br>(Pallet Conveyor)</div>
+            </div>
+        </section>
+
+         <section id="products" class="bg-white rounded-lg shadow-md p-6 my-8">
+            <h2 class="text-3xl font-bold text-center text-[#366e8a] mb-6">Industrial Consumables & Ancillary Products</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-lg">
+                <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                    <h3 class="text-2xl font-semibold mb-3 text-[#003f5c]">Industrial Bearings</h3>
+                     <p>High-performance ARB bearings for various applications.</p>
+                    <ul class="list-disc list-inside mt-2">
+                        <li>Ball Bearings</li>
+                        <li>Roller Bearings</li>
+                        <li>Thrust Bearings</li>
+                    </ul>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                    <h3 class="text-2xl font-semibold mb-3 text-[#003f5c]">Industrial Fasteners</h3>
+                    <p>Reliable fasteners from leading brands like Caparo and TVS.</p>
+                    <ul class="list-disc list-inside mt-2">
+                        <li>Bolts, Nuts & Screws</li>
+                        <li>Washers & Rivets</li>
+                        <li>Foundation Bolts</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-[#003f5c] text-white text-center p-6 mt-8">
+        <p class="text-xl font-bold">Ready to optimize your operations?</p>
+        <p class="mt-2">Contact Arnav Engineering Services today for a consultation.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            const brilliantBlues = ['#003f5c', '#366e8a', '#6b9db3', '#a5d8e4', '#f0f4f8'];
+            const chartFontColor = '#003f5c';
+
+            function wrapLabel(label) {
+                if (label.length > 16) {
+                    const words = label.split(' ');
+                    const lines = [];
+                    let currentLine = '';
+                    words.forEach(word => {
+                        if ((currentLine + ' ' + word).length > 16) {
+                            lines.push(currentLine.trim());
+                            currentLine = word;
+                        } else {
+                            currentLine += ' ' + word;
+                        }
+                    });
+                    lines.push(currentLine.trim());
+                    return lines.map(l => l.trim());
+                }
+                return label;
+            }
+            
+            const tooltipTitleCallback = {
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                if (Array.isArray(label)) {
+                                  return label.join(' ');
+                                } else {
+                                  return label;
+                                }
+                            }
+                        }
+                    },
+                    legend: {
+                        position: 'right',
+                        labels: {
+                            color: chartFontColor,
+                            font: {
+                                size: 14
+                            },
+                             boxWidth: 20
+                        }
+                    }
+                }
+            };
+
+            const competenciesCtx = document.getElementById('competenciesChart').getContext('2d');
+            const competenciesChart = new Chart(competenciesCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: [
+                        wrapLabel('Material Handling & Storage'), 
+                        wrapLabel('Conveyors & Automation'), 
+                        wrapLabel('Industrial Fabrication & Safety'), 
+                        wrapLabel('Pressure Safety Devices'),
+                        wrapLabel('Industrial Consumables')
+                    ],
+                    datasets: [{
+                        label: 'Service Focus',
+                        data: [40, 25, 20, 10, 5],
+                        backgroundColor: brilliantBlues.slice(0, 5),
+                        borderColor: '#ffffff',
+                        borderWidth: 3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    ...tooltipTitleCallback
+                }
+            });
+
+            const materialHandlingCtx = document.getElementById('materialHandlingChart').getContext('2d');
+            const materialHandlingChart = new Chart(materialHandlingCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Workstations', 'Storage Systems', 'Conveyors', 'Trolleys', 'Lifting Equipment', 'Cranes'],
+                    datasets: [{
+                        label: 'Project Focus %',
+                        data: [25, 20, 18, 15, 12, 10],
+                        backgroundColor: '#366e8a',
+                        borderColor: '#003f5c',
+                        borderWidth: 1,
+                        borderRadius: 5
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: '#e0e0e0'
+                            },
+                            ticks: {
+                                color: chartFontColor
+                            }
+                        },
+                        x: {
+                             grid: {
+                                display: false
+                            },
+                            ticks: {
+                                color: chartFontColor
+                            }
+                        }
+                    },
+                     plugins: {
+                        tooltip: {
+                            callbacks: {
+                                title: function(tooltipItems) {
+                                    const item = tooltipItems[0];
+                                    return item.label;
+                                }
+                            }
+                        },
+                        legend: {
+                           display: false
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

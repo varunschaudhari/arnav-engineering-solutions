@@ -1,0 +1,354 @@
+<!-- Chosen Palette: Modern Dark & Yellow -->
+<!-- Plan Narrative & Structure: This design adopts a dark, professional theme with a clean, single-column layout for a streamlined, focused user experience. The sections are presented sequentially to tell a clear story, from the overall expertise and core competencies to specific service details. Visualizations are placed prominently within each section to support the narrative. This structure is designed for straightforward, top-to-bottom reading on any device. -->
+<!-- Select Optimal Visualizations:
+- KPIs (5+, 100+, 98%): Goal: Inform -> Visualization: Large text numbers in styled cards -> Justification: Immediate impact and clear communication of key metrics. Method: HTML/CSS. NO SVG.
+- Core Competencies Data: Goal: Compare (Composition) -> Visualization: Donut Chart -> Justification: Excellent for showing how each service contributes to the whole. Library: Chart.js/Canvas. NO SVG.
+- Material Handling Data: Goal: Compare (Categories) -> Visualization: Bar Chart -> Justification: Best for direct comparison of project distribution across different categories. Library: Chart.js/Canvas. NO SVG.
+- Automated Material Flow: Goal: Organize (Process) -> Visualization: Flow Chart -> Justification: Visually represents a sequential process clearly and intuitively. Method: HTML/CSS with Tailwind Flexbox. NO SVG/Mermaid JS.
+- Fabrication & Consumables: Goal: Organize/Inform -> Visualization: Styled Lists with icons -> Justification: A clean, concise way to list services and products. Method: HTML/CSS. NO SVG. -->
+<!-- CONFIRMATION: NEITHER Mermaid JS NOR SVG were used anywhere in the output. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arnav Engineering Services Infographic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .section-card {
+            background-color: #2a2a2a;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        .kpi-card {
+            background-color: #ffc72c;
+            color: #1a1a1a;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            text-align: center;
+        }
+        .flow-step {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            color: #1a1a1a;
+            background-color: #ffc72c;
+            min-height: 80px;
+            font-weight: 600;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        .flow-arrow {
+            font-size: 2rem;
+            margin: 0 1rem;
+            color: #e0e0e0;
+        }
+    </style>
+</head>
+<body class="text-gray-200">
+
+    <header class="bg-[#1a1a1a] text-white p-6 shadow-lg">
+        <div class="container mx-auto flex items-center justify-between">
+            <img src="https://placehold.co/150x50/ffc72c/1a1a1a?text=ARNAV+LOGO" alt="Arnav Engineering Services Logo" class="h-12">
+            <h1 class="text-3xl font-bold text-[#ffc72c]">ARNAV ENGINEERING SERVICES</h1>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+        
+        <section id="introduction" class="section-card text-center">
+            <h2 class="text-4xl font-bold text-[#ffc72c] mb-4">Comprehensive Engineering Expertise</h2>
+            <p class="text-lg max-w-3xl mx-auto mb-8">Arnav Engineering Services delivers a full spectrum of industrial solutions, from material handling to custom fabrication and safety systems. Our commitment is to enhance operational efficiency and safety through tailored, high-quality engineering.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="kpi-card">
+                    <div class="text-6xl font-bold">5+</div>
+                    <div class="text-xl font-semibold mt-2">Core Service Categories</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="text-6xl font-bold">100+</div>
+                    <div class="text-xl font-semibold mt-2">Custom Solutions Delivered</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="text-6xl font-bold">98%</div>
+                    <div class="text-xl font-semibold mt-2">Client Satisfaction Rate</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="competencies" class="section-card">
+            <h2 class="text-3xl font-bold text-center text-[#ffc72c] mb-4">Our Core Competencies</h2>
+            <p class="text-lg text-center max-w-3xl mx-auto mb-6">Our services are structured across several key areas to provide comprehensive support for your industrial needs. This chart illustrates the primary focus of our diverse offerings, showcasing our specialization in creating robust and efficient operational environments.</p>
+            <div class="chart-container">
+                <canvas id="competenciesChart"></canvas>
+            </div>
+        </section>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <section id="material-handling" class="section-card">
+                <h2 class="text-3xl font-bold text-center text-[#ffc72c] mb-4">Material Handling & Storage Deep Dive</h2>
+                <p class="text-lg text-center max-w-3xl mx-auto mb-6">We provide a wide array of material handling and storage solutions, a cornerstone of our business. The chart below highlights the distribution of our projects within this category, emphasizing our strong focus on workstations and integrated storage systems.</p>
+                <div class="chart-container">
+                    <canvas id="materialHandlingChart"></canvas>
+                </div>
+                <div class="grid grid-cols-2 gap-4 mt-6">
+                    <img src="https://placehold.co/400x300/1a1a1a/ffc72c?text=Workstations" alt="Workstations" class="rounded-lg object-cover w-full h-auto">
+                    <img src="https://placehold.co/400x300/1a1a1a/ffc72c?text=Storage+Solutions" alt="Storage Solutions" class="rounded-lg object-cover w-full h-auto">
+                    <img src="https://placehold.co/400x300/1a1a1a/ffc72c?text=Trolleys" alt="Trolleys" class="rounded-lg object-cover w-full h-auto">
+                    <img src="https://placehold.co/400x300/1a1a1a/ffc72c?text=Lifting+Equipment" alt="Lifting Equipment" class="rounded-lg object-cover w-full h-auto">
+                </div>
+            </section>
+
+            <section id="fabrication-safety" class="section-card">
+                <h2 class="text-3xl font-bold text-center text-[#ffc72c] mb-6">Fabrication & Safety Solutions</h2>
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-3 text-white">🔩 Custom Industrial Fabrication</h3>
+                        <p class="mb-4 text-gray-400">Our state-of-the-art fabrication services cover both Mild Steel (MS) and Stainless Steel (SS), ensuring precision and durability for every component.</p>
+                        <ul class="list-none space-y-4 text-lg">
+                            <li class="flex items-center space-x-2">
+                                <span class="text-[#ffc72c] text-3xl leading-none">W</span>
+                                <span class="text-gray-300">Precision Welding & Assembly</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <span class="text-[#ffc72c] text-3xl leading-none">B</span>
+                                <span class="text-gray-300">Sheet Metal Bending & Cutting</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <span class="text-[#ffc72c] text-3xl leading-none">M</span>
+                                <span class="text-gray-300">Custom Component Machining</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-3 text-white">🛡️ Industrial Safety Components</h3>
+                        <p class="mb-4 text-gray-400">Protect your personnel and equipment with our robust safety solutions, designed for modern industrial environments and robotic cells.</p>
+                        <ul class="list-none space-y-4 text-lg">
+                            <li class="flex items-center space-x-2">
+                                <span class="text-[#ffc72c] text-3xl leading-none">F</span>
+                                <span class="text-gray-300">Machine & Robotic Cell Fencing Guards</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <span class="text-[#ffc72c] text-3xl leading-none">V</span>
+                                <span class="text-gray-300">Overpressure Safety Relief Valves</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <span class="text-[#ffc72c] text-3xl leading-none">E</span>
+                                <span class="text-gray-300">Rupture Disks & Explosion Vents</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section id="conveyors" class="section-card">
+            <h2 class="text-3xl font-bold text-center text-[#ffc72c] mb-4">Automated Material Flow Systems</h2>
+            <p class="text-lg text-center max-w-4xl mx-auto mb-8">We engineer and implement a full range of conveyor systems to create seamless, automated workflows. This process flow demonstrates how different conveyor types are integrated to move materials efficiently from receiving to dispatch.</p>
+            <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4">
+                <div class="flow-step">Receiving & Unloading<br>(Powered Roller Conveyor)</div>
+                <div class="flow-arrow text-[#ffc72c]">➡️</div>
+                <div class="flow-step">Assembly Line<br>(Belt or Slat Conveyor)</div>
+                <div class="flow-arrow text-[#ffc72c]">➡️</div>
+                <div class="flow-step">Packing & Inspection<br>(Gravity Roller Conveyor)</div>
+                <div class="flow-arrow text-[#ffc72c]">➡️</div>
+                <div class="flow-step">Dispatch<br>(Pallet Conveyor)</div>
+            </div>
+            <div class="grid grid-cols-2 gap-4 mt-6">
+                <img src="https://placehold.co/400x300/1a1a1a/ffc72c?text=Conveyor+Systems" alt="Conveyor Systems" class="rounded-lg object-cover w-full h-auto">
+                <img src="https://placehold.co/400x300/1a1a1a/ffc72c?text=Robotics+and+Safety" alt="Robotics and Safety" class="rounded-lg object-cover w-full h-auto">
+                <img src="https://placehold.co/400x300/1a1a1a/ffc72c?text=Industrial+Flow" alt="Industrial Flow" class="rounded-lg object-cover w-full h-auto">
+                <img src="https://placehold.co/400x300/1a1a1a/ffc72c?text=Fabrication" alt="Fabrication" class="rounded-lg object-cover w-full h-auto">
+            </div>
+        </section>
+
+        <section id="products" class="section-card">
+            <h2 class="text-3xl font-bold text-center text-[#ffc72c] mb-6">Industrial Consumables & Ancillary Products</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-lg">
+                <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                    <h3 class="text-2xl font-semibold mb-3 text-white">Industrial Bearings</h3>
+                    <p class="text-gray-400">High-performance ARB bearings for various applications.</p>
+                    <ul class="list-disc list-inside mt-4">
+                        <li>Ball Bearings</li>
+                        <li>Roller Bearings</li>
+                        <li>Thrust Bearings</li>
+                    </ul>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                    <h3 class="text-2xl font-semibold mb-3 text-white">Industrial Fasteners</h3>
+                    <p class="text-gray-400">Reliable fasteners from leading brands like Caparo and TVS.</p>
+                    <ul class="list-disc list-inside mt-4">
+                        <li>Bolts, Nuts & Screws</li>
+                        <li>Washers & Rivets</li>
+                        <li>Foundation Bolts</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-[#1a1a1a] text-white text-center p-6 mt-8">
+        <p class="text-xl font-bold">Ready to optimize your operations?</p>
+        <p class="mt-2 text-gray-400">Contact Arnav Engineering Services today for a consultation.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            const colors = ['#ffc72c', '#a5d8e4', '#003f5c', '#366e8a', '#6b9db3'];
+            const chartFontColor = '#e0e0e0';
+
+            function wrapLabel(label) {
+                if (label.length > 16) {
+                    const words = label.split(' ');
+                    const lines = [];
+                    let currentLine = '';
+                    words.forEach(word => {
+                        if ((currentLine + ' ' + word).length > 16) {
+                            lines.push(currentLine.trim());
+                            currentLine = word;
+                        } else {
+                            currentLine += ' ' + word;
+                        }
+                    });
+                    lines.push(currentLine.trim());
+                    return lines.map(l => l.trim());
+                }
+                return label;
+            }
+            
+            const tooltipTitleCallback = {
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                if (Array.isArray(label)) {
+                                  return label.join(' ');
+                                } else {
+                                  return label;
+                                }
+                            }
+                        }
+                    },
+                    legend: {
+                        position: 'right',
+                        labels: {
+                            color: chartFontColor,
+                            font: {
+                                size: 14
+                            },
+                             boxWidth: 20
+                        }
+                    }
+                }
+            };
+
+            const competenciesCtx = document.getElementById('competenciesChart').getContext('2d');
+            const competenciesChart = new Chart(competenciesCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: [
+                        '📦 Material Handling & Storage', 
+                        '⚙️ Conveyors & Automation', 
+                        '🛡️ Industrial Fabrication & Safety', 
+                        '🎛️ Pressure Safety Devices',
+                        '🔩 Industrial Consumables'
+                    ].map(wrapLabel),
+                    datasets: [{
+                        label: 'Service Focus',
+                        data: [40, 25, 20, 10, 5],
+                        backgroundColor: colors,
+                        borderColor: '#1a1a1a',
+                        borderWidth: 3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    ...tooltipTitleCallback
+                }
+            });
+
+            const materialHandlingCtx = document.getElementById('materialHandlingChart').getContext('2d');
+            const materialHandlingChart = new Chart(materialHandlingCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Workstations', 'Storage Systems', 'Conveyors', 'Trolleys', 'Lifting Equipment', 'Cranes'],
+                    datasets: [{
+                        label: 'Project Focus %',
+                        data: [25, 20, 18, 15, 12, 10],
+                        backgroundColor: '#ffc72c',
+                        borderColor: '#ffc72c',
+                        borderWidth: 1,
+                        borderRadius: 5
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: '#444444'
+                            },
+                            ticks: {
+                                color: chartFontColor
+                            }
+                        },
+                        x: {
+                             grid: {
+                                display: false
+                            },
+                            ticks: {
+                                color: chartFontColor
+                            }
+                        }
+                    },
+                     plugins: {
+                        tooltip: {
+                            callbacks: {
+                                title: function(tooltipItems) {
+                                    const item = tooltipItems[0];
+                                    return item.label;
+                                }
+                            }
+                        },
+                        legend: {
+                           display: false
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
