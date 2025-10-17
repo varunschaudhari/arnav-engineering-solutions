@@ -48,21 +48,25 @@ document.addEventListener('DOMContentLoaded', function () {
             type: 'doughnut',
             data: {
                 labels: [
-                    'Material Handling & Storage',
-                    'Conveyors & Automation',
-                    'Industrial Fabrication & Safety',
-                    'Pressure Safety Devices',
-                    'Industrial Consumables'
+                    'Material Handling',
+                    'Storage Solutions',
+                    'Conveyors & Automated Material Flow',
+                    'Industrial Fabrication',
+                    'Machine Fencing Guard',
+                    'Industrial Consumables',
+                    'Automation'
                 ],
                 datasets: [{
                     label: 'Service Focus',
-                    data: [40, 25, 20, 10, 5],
+                    data: [20, 15, 15, 15, 15, 10, 10],
                     backgroundColor: [
-                        '#FFC72C',
                         '#003f5c',
-                        '#366e8a',
-                        '#6b9db3',
-                        '#a5d8e4'
+                        '#2f4b7c',
+                        '#665191',
+                        '#a05195',
+                        '#d45087',
+                        '#f95d6a',
+                        '#ff7c43'
                     ],
                     borderColor: '#ffffff',
                     borderWidth: 3,
@@ -160,19 +164,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Form submission handling
-const contactForm = document.querySelector('.contact-form form');
+// Initialize EmailJS
+(function () {
+    // Replace 'YOUR_PUBLIC_KEY' with your actual EmailJS public key
+    emailjs.init('YOUR_PUBLIC_KEY');
+})();
+
+// Form submission handling with EmailJS
+const contactForm = document.getElementById('contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
         // Get form data
         const formData = new FormData(contactForm);
-        const name = contactForm.querySelector('input[type="text"]').value;
-        const email = contactForm.querySelector('input[type="email"]').value;
-        const phone = contactForm.querySelector('input[type="tel"]').value;
-        const service = contactForm.querySelector('select').value;
-        const message = contactForm.querySelector('textarea').value;
+        const name = formData.get('user_name');
+        const email = formData.get('user_email');
+        const phone = formData.get('user_phone');
+        const service = formData.get('service_type');
+        const message = formData.get('message');
 
         // Simple validation
         if (!name || !email || !phone || !service || !message) {
@@ -180,18 +190,38 @@ if (contactForm) {
             return;
         }
 
-        // Simulate form submission
+        // Update submit button
         const submitBtn = contactForm.querySelector('button[type="submit"]');
         const originalText = submitBtn.textContent;
         submitBtn.textContent = 'Sending...';
         submitBtn.disabled = true;
 
-        setTimeout(() => {
-            showNotification('Thank you for your message! We will get back to you soon.', 'success');
-            contactForm.reset();
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-        }, 2000);
+        // Prepare email parameters
+        const templateParams = {
+            user_name: name,
+            user_email: email,
+            user_phone: phone,
+            service_type: service,
+            message: message,
+            to_email: 'info@arnavengineering.com' // Your email address
+        };
+
+        // Send email using EmailJS
+        // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual EmailJS service and template IDs
+        emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+            .then(function (response) {
+                console.log('SUCCESS!', response.status, response.text);
+                showNotification('Thank you for your message! We will get back to you soon.', 'success');
+                contactForm.reset();
+            }, function (error) {
+                console.log('FAILED...', error);
+                showNotification('Sorry, there was an error sending your message. Please try again or contact us directly.', 'error');
+            })
+            .finally(function () {
+                // Reset button state
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
     });
 }
 

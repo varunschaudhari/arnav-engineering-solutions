@@ -9,6 +9,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 
 <body>
@@ -100,9 +101,8 @@
     <section id="about" class="about">
         <div class="container">
             <div class="section-header">
-                <h2>Comprehensive Engineering Expertise</h2>
-                <p>We provide integrated industrial solutions across multiple domains, ensuring your operations run
-                    efficiently and safely.</p>
+                <h2>Leading Provider of Industrial Solutions</h2>
+                <p>Arnav Engineering Services is dedicated to enhancing operational efficiency and safety through high-quality, tailored engineering solutions. With over 100 custom solutions delivered and a 98% client satisfaction rate, we are committed to building lasting partnerships and solving complex industrial challenges.</p>
             </div>
 
             <div class="competencies-section">
@@ -118,28 +118,28 @@
                         <i class="fas fa-cogs"></i>
                     </div>
                     <h3>Material Handling & Storage</h3>
-                    <p>Comprehensive solutions for efficient material movement and storage systems.</p>
+                    <p>Expert solutions for efficient material movement and advanced storage systems.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-conveyor-belt"></i>
                     </div>
                     <h3>Conveyors & Automation</h3>
-                    <p>Advanced conveyor systems and automated material flow solutions.</p>
+                    <p>State-of-the-art conveyor systems and automated material flow solutions.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
                     <h3>Industrial Fabrication & Safety</h3>
-                    <p>Custom fabrication and robust safety systems for industrial environments.</p>
+                    <p>Custom fabrication and machine fencing solutions for enhanced workplace safety.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-tools"></i>
+                        <i class="fas fa-robot"></i>
                     </div>
-                    <h3>Industrial Consumables</h3>
-                    <p>High-quality bearings, fasteners, and industrial components.</p>
+                    <h3>Automation & Consumables</h3>
+                    <p>Advanced automation solutions and high-quality industrial components.</p>
                 </div>
             </div>
         </div>
@@ -468,18 +468,18 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form>
+                    <form id="contact-form">
                         <div class="form-group">
-                            <input type="text" placeholder="Your Name" required>
+                            <input type="text" name="user_name" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" placeholder="Your Email" required>
+                            <input type="email" name="user_email" placeholder="Your Email" required>
                         </div>
                         <div class="form-group">
-                            <input type="tel" placeholder="Your Phone" required>
+                            <input type="tel" name="user_phone" placeholder="Your Phone" required>
                         </div>
                         <div class="form-group">
-                            <select required>
+                            <select name="service_type" required>
                                 <option value="">Select Service</option>
                                 <option value="material-handling">Material Handling</option>
                                 <option value="conveyors">Conveyors & Automation</option>
@@ -491,7 +491,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <textarea placeholder="Your Message" rows="5" required></textarea>
+                            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
