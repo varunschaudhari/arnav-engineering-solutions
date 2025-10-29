@@ -372,8 +372,8 @@ section {
 }
 
 .service-header img {
-    width: 80px;
-    height: 80px;
+    width: 150px;
+    height: 150px;
     object-fit: contain;
     margin-bottom: 1rem;
     background: rgba(255, 255, 255, 0.1);
@@ -391,6 +391,7 @@ section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 1.5rem;
+    max-height: 500px;
 }
 
 .service-item {
